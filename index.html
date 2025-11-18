@@ -1,413 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Receita Conchiglione Gourmet</title>
-
-    <!-- Meta Tags para SEO -->
-    <meta name="description" content="Deliciosa receita de Conchiglione recheado com frango, cream cheese e molho especial. Rende 10 porções! Receita completa com passo a passo.">
-    <meta name="keywords" content="conchiglione, receita, massa recheada, frango, culinária italiana, jantar">
-    <meta name="author" content="Adriele">
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vitrine-show.github.io/receita-conchiglione/">
-    <meta property="og:title" content="🍝 Receita Conchiglione Gourmet - Feita com Amor">
-    <meta property="og:description" content="Deliciosa receita de Conchiglione recheado com frango, cream cheese e molho especial. Rende 10 porções! Vai surpreender a todos!">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&h=630&fit=crop">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://vitrine-show.github.io/receita-conchiglione/">
-    <meta name="twitter:title" content="🍝 Receita Conchiglione Gourmet - Feita com Amor">
-    <meta name="twitter:description" content="Deliciosa receita de Conchiglione recheado com frango, cream cheese e molho especial. Rende 10 porções!">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&h=630&fit=crop">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      @keyframes pulse-glow {
+        0% {
+          box-shadow: 0 0 15px rgba(255, 170, 0, 0.15), 0 0 30px rgba(255, 170, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
-
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffecd2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        50% {
+          box-shadow: 0 0 20px rgba(220, 38, 38, 0.2), 0 0 40px rgba(220, 38, 38, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
-
-        .container {
-            max-width: 900px;
-            width: 100%;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out;
+        100% {
+          box-shadow: 0 0 15px rgba(255, 170, 0, 0.15), 0 0 30px rgba(255, 170, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
+      }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      body {
+        background-color: #1c0d0d;
+        background-image: radial-gradient(at 0% 0%, hsl(0, 84%, 10%) 0px, transparent 50%),
+                          radial-gradient(at 90% 90%, hsl(30, 89%, 18%) 0px, transparent 50%);
+        color: #e5e7eb; /* Default text color (gray-200) */
+      }
+      
+      .logo-glow {
+        text-shadow: 0 0 8px rgba(255, 193, 7, 0.4),
+                     0 0 12px rgba(239, 68, 68, 0.3);
+      }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 50px 30px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '🍝';
-            position: absolute;
-            font-size: 120px;
-            opacity: 0.1;
-            top: -20px;
-            right: -20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
-
-        .content {
-            padding: 40px 30px;
-        }
-
-        .accordion-item {
-            margin-bottom: 15px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .accordion-item:hover {
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            transform: translateY(-2px);
-        }
-
-        .accordion-button {
-            width: 100%;
-            padding: 25px 30px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            font-family: 'Georgia', serif;
-        }
-
-        .accordion-button:hover {
-            filter: brightness(1.1);
-        }
-
-        .accordion-button.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .icon {
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-button.active .icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            background: #fafafa;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            padding: 0 30px;
-        }
-
-        .accordion-content.active {
-            max-height: 2000px;
-            padding: 30px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .accordion-content p {
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.05em;
-        }
-
-        .accordion-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .accordion-content li {
-            padding: 8px 0;
-            padding-left: 30px;
-            position: relative;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .accordion-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .dica {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 5px solid #f5576c;
-            font-style: italic;
-        }
-
-        .dica strong {
-            color: #764ba2;
-            font-style: normal;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: white;
-        }
-
-        .footer h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .footer p {
-            font-size: 1.3em;
-            margin: 10px 0;
-        }
-
-        .heart {
-            color: #ff6b6b;
-            animation: heartbeat 1.5s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.2); }
-            50% { transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .accordion-button {
-                font-size: 1.1em;
-                padding: 20px;
-            }
-
-            .content {
-                padding: 20px 15px;
-            }
-        }
+      .container-glow {
+        animation: pulse-glow 5s infinite ease-in-out;
+      }
     </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🍝 Receita Conchiglione Gourmet 🍝</h1>
-            <p>Uma receita especial, feita com amor</p>
-        </div>
-
-        <div class="content">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>📋 Ingredientes para 10 pessoas</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>Se calcula 06 unid. por pessoa.</strong></p>
-                    <ul>
-                        <li>60 unid. Conchiglione</li>
-                        <li>2 kg de peito de frango</li>
-                        <li>2 latas de milho</li>
-                        <li>1 azeitona grande</li>
-                        <li>2 ou 3 cremes de leite</li>
-                        <li>3 creamcheese (Philadelphia) pote de 300gr ou bisnaga de 700gr</li>
-                        <li>2 massas de tomate</li>
-                        <li>4 Sazon de carne</li>
-                        <li>1 Pomarola (manjericão)</li>
-                        <li>400gr de muçarela ralada</li>
-                        <li>2 salsinhas</li>
-                        <li>2 coentros</li>
-                        <li>2 cebolas de cabeça</li>
-                        <li>6 cabeças de alho</li>
-                        <li>6 tomates Andrea ao ponto</li>
-                    </ul>
-                    <p style="margin-top: 20px;"><strong>Especiarias</strong></p>
-                    <ul>
-                        <li>Chimichurri defumada</li>
-                        <li>Tempero baiano</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>🍅 1º Passo: Molho Vermelho</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Em uma panela média dourar 4 cabeças de alho triturado com azeite ou óleo. Depois de dourar o alho, acrescentar 2 cebolas picadinhas e deixar dourar também. Em seguida colocar 6 tomates médios picados (tamanho a gosto).</p>
-
-                    <div class="dica">
-                        <strong>Dica:</strong> o tamanho deve ser equilibrado, nem tão grosseiro nem tão pequenininho.
-                    </div>
-
-                    <p>Tampar a panela deixando o tomate cozinhar.</p>
-
-                    <p>Quando ele estiver derretendo colocar 1 copo de água filtrada, 2 Pomarola de manjericão e 1 massa de tomate. Sazon ou outro tempero a gosto.</p>
-
-                    <p>Colocar no fogo baixo e deixar ferver até encorpar o caldo. Mexer de vez em quando para o tomate não grudar no fundo e acrescentar cheiro verde a gosto. Se precisar acrescentar mais um pouco de água filtrada.</p>
-
-                    <p>A cremosidade do molho é o ponto ideal: nem aguado nem grosso demais. Pronto! Deixar ele esfriar.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>🍗 2º Passo: Recheio</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Em uma panela grande dourar 2 cabeças de alho triturado com azeite ou óleo. Depois de dourar o alho acrescentar 1 cebola picadinha e deixar dourar também.</p>
-
-                    <p>Colocar 2kg de peito de frango cozido e desfiado, 2 ou 3 caixinhas de creme de leite, 2 latas de milho, 1 azeitona picada, Sazon a gosto e cheiro verde a gosto. Acrescentar 1 massa de tomate só para dar uma corzinha bonita, nada de ficar vermelhão.</p>
-
-                    <p>Deixar cozinhar por uns 15 min e pronto! Deixar esfriar.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>🍝 3º Passo: A massa</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Em uma panela grande colocar água filtrada para ferver. Somente depois de ferver colocar as peças de conchiglione em partes para não grudar uma na outra.</p>
-
-                    <p>Não mexer constantemente e também não deixar muito tempo paradas.</p>
-
-                    <p>O ponto da massa é crucial e essa massa tem o costume de "entrar uma na outra". Com muito cuidado ir tirando elas com o auxílio de um garfo.</p>
-
-                    <div class="dica">
-                        <strong>Dica:</strong> a massa não pode cozinhar muito e nem pode ficar mole. Também não pode ficar ao dente demais. Tem que ficar no ponto exato. Escolha uma pecinha para ir experimentando até achar o ponto perfeito.
-                    </div>
-
-                    <p>Quando a massa estiver pronta escorrer toda a água, passar na água fria para parar o cozimento e selar com um fio de azeite para não grudar.</p>
-
-                    <p>Enquanto prepara a próxima remessa já pode ir montando essa.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>👨‍🍳 4º Passo: Montagem e Finalização</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Pegar travessas de vidro. Cobrir o fundo com molho vermelho. Não colocar muito, apenas cobrir o fundo mesmo, uma fina camada.</p>
-
-                    <p>Abrir cuidadosamente um conchiglione e calçar com creamcheese (melhor marca é a Philadelphia). Depois colocar o recheio de frango de forma que fique completo, sem ficar muito cheio e nem vazio. Colocar na travessa deixando uma pequena distância entre elas e ir repetindo isso.</p>
-
-                    <p>Após a montagem cobrir parcialmente uma a uma com mussarela ralada (umas 400gr já dá). Acrescentar um fio generoso de molho vermelho por cima de cada uma.</p>
-
-                    <p>Finalizar com orégano e levar ao forno.</p>
-
-                    <p><strong>Lembrar:</strong> o forno deve estar preaquecido. Temperatura 180º. Aguardar gratinar e pronto!</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <h2>PROTINHO!!!!!</h2>
-            <p>VAI SURPREENDER A TODOS!</p>
-            <p>BOM APETITE!</p>
-            <p style="margin-top: 30px; font-size: 1.5em;">
-                Com amor, <span class="heart">♥</span> Adriele!
-            </p>
-        </div>
-    </div>
-
-    <script>
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const isActive = button.classList.contains('active');
-
-            document.querySelectorAll('.accordion-button').forEach(btn => {
-                btn.classList.remove('active');
-                btn.nextElementSibling.classList.remove('active');
-            });
-
-            if (!isActive) {
-                button.classList.add('active');
-                content.classList.add('active');
-            }
-        }
-    </script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

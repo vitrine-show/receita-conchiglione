@@ -1,52 +1,20 @@
-# 🍝 Receita Conchiglione Gourmet
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Um lindo site de receita criado com amor por Adriele!
+# Run and deploy your AI Studio app
 
-## 🌐 Como publicar o site online (GRÁTIS)
+This contains everything you need to run your app locally.
 
-### Opção 1: GitHub Pages (Recomendado)
+View your app in AI Studio: https://ai.studio/apps/drive/1QDTSTuzPSR-bzb0EvJdC2SVEkzetfvL2
 
-1. Faça push do código para um repositório público no GitHub
-2. Vá em **Settings** → **Pages**
-3. Em **Source**, selecione o branch principal
-4. Seu site estará disponível em: `https://seu-usuario.github.io/receita-conchiglione`
+## Run Locally
 
-### Opção 2: Netlify
+**Prerequisites:**  Node.js
 
-1. Acesse [netlify.com](https://netlify.com)
-2. Arraste e solte a pasta do projeto
-3. Pronto! Você receberá um link instantaneamente
 
-### Opção 3: Vercel
-
-1. Acesse [vercel.com](https://vercel.com)
-2. Conecte seu repositório GitHub
-3. Deploy automático!
-
-### Opção 4: Surge.sh (Mais rápido!)
-
-```bash
-npm install -g surge
-cd /home/user/receita-conchiglione
-surge
-```
-
-## 📱 Como ver localmente
-
-Basta abrir o arquivo `index.html` no seu navegador!
-
-## ✨ Recursos do site
-
-- Design responsivo (funciona em celular e desktop)
-- Animações suaves
-- Acordeão interativo para cada seção da receita
-- Cores vibrantes e gradientes
-- Emojis e ícones
-
-## 🍽️ A Receita
-
-Conchiglione recheado com frango, cream cheese e molho especial - rende 10 porções!
-
----
-
-**Feito com ♥ por Adriele**
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
